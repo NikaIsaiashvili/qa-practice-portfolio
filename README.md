@@ -11,7 +11,7 @@ Manual QA Engineer based in Tbilisi, Georgia. This repository contains independe
 | Project | Target | Files | Executed so far |
 |---|---|---|---|
 | [1. Web UI testing](01-web-ui-testing-saucedemo/README.md) | SauceDemo (public practice store) | 33 test cases, 2 decision tables | Not executed |
-| [2. REST API testing](02-api-testing-restful-booker/README.md) | Restful-Booker (public practice API) | Postman collection (17 requests), environment template, results | 11 of 17 requests run by the agent: 15 of 19 assertions passed; 3 negative cases failed |
+| [2. REST API testing](02-api-testing-restful-booker/README.md) | Restful-Booker (public practice API) | Postman collection (17 requests), environment template, results | All 17 requests run by the agent: 24 of 28 assertions passed; 3 negative cases failed |
 | [3. SQL data checks](03-sql-data-checks/README.md) | Synthetic SQLite database (included) | Schema and data, 14 queries, results | All 14 queries run by the agent; all match the expected rows |
 
 ### 1. Web UI testing (SauceDemo)
@@ -27,8 +27,8 @@ Manual QA Engineer based in Tbilisi, Georgia. This repository contains independe
 - **Purpose:** API testing with Postman: status codes, JSON checks, authentication, and negative input.
 - **Scope:** GET, POST, PUT, PATCH, DELETE; token authentication; missing fields, wrong types, invalid dates, and requests without a token.
 - **How to run:** import the collection and environment ([instructions](02-api-testing-restful-booker/README.md#how-to-run)).
-- **Done:** collection built and validated. The agent ran folders 1–2; it observed a 500 response for a missing field, and invalid data accepted with 200 ([results](02-api-testing-restful-booker/results.md)).
-- **To verify:** a full run including authentication, and reproducing the three observations.
+- **Done:** collection built and validated. The agent ran all 3 folders; it observed a 500 response for a missing field, invalid data accepted with 200, and a failed login returned with 200 ([results](02-api-testing-restful-booker/results.md)).
+- **To verify:** my own full run, and reproducing the four observations.
 
 ### 3. SQL data checks
 
