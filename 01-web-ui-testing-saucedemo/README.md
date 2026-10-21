@@ -2,26 +2,33 @@
 
 [← Back to portfolio](../README.md)
 
-**Status:** Not started · **Type:** Independent practice
+**Status:** Test cases written; not executed yet · **Type:** Independent practice
 
-**Target:** [saucedemo.com](https://www.saucedemo.com/), a public demo store made for testing practice. The test accounts are listed on its login page.
+**Target:** [saucedemo.com](https://www.saucedemo.com/), a public demo store made for testing practice. The test accounts and the shared password are listed on its login page.
 
-## Scope
+## Files
 
-| Area | Examples of what to check |
-|---|---|
-| Login | Valid login, locked-out user, empty fields, wrong password, error messages |
-| Product list | Sorting (name and price, both directions), product details, images |
-| Cart | Add and remove items, cart badge count, cart contents after navigation |
-| Checkout | Required fields, cancel, order total and tax, order confirmation |
-| Different test users | Compare behavior between the test accounts on the login page |
-| Cross-browser | Repeat the main flow in a second browser |
+| File | Content | Status |
+|---|---|---|
+| [test-cases.md](test-cases.md) | 33 test cases and 2 decision tables: login, products and sorting, cart, checkout, special test users | Not Run |
+| `bug-reports.md` | Bugs found during execution, using the [bug report template](../templates/bug-report-template.md) | To be created after execution |
+| `evidence/` | Own screenshots, named by test case (for example `TC-07-locked-out.png`) | To be created after execution |
 
-## Deliverables
+## Scope and techniques
 
-- [ ] `test-cases.md`: about 20–30 test cases, using the [test case template](../templates/test-case-template.md), with the technique noted
-- [ ] `bug-reports.md`: bugs actually found, using the [bug report template](../templates/bug-report-template.md)
-- [ ] `test-summary.md`: results, using the [test summary template](../templates/test-summary-template.md)
-- [ ] `evidence/`: own screenshots with clear file names
+Login (valid, invalid, empty fields, locked-out user, case sensitivity, direct URL access, logout), sorting (4 options), product details, cart (badge count at 0, 1, and all items; add and remove; persistence after reload), checkout (happy path, total calculation, required fields, spaces-only input, cancel, empty cart), and the main flow for each of the four special test users.
 
-Update the status line above when work starts and when it is complete.
+Techniques used: equivalence partitioning, boundary values (0, 1, and all items in the cart), decision tables for the login and checkout fields, state transitions for the cart and session, and error guessing.
+
+## How to run
+
+1. Open https://www.saucedemo.com/ in Chrome (and later a second browser for a comparison run).
+2. Run the test cases in [test-cases.md](test-cases.md) in order. Fill in **Actual result** and **Status**.
+3. Take a screenshot for every Fail and save it in `evidence/`.
+4. For each failure that you can reproduce twice, write a bug report.
+5. Fill in the run summary at the end of `test-cases.md`.
+
+## Completed vs to verify
+
+- **Done:** 33 test cases written. No test has been executed, and no results or bugs are recorded.
+- **Nika to do:** execute the test cases, record the results, and write bug reports only for problems actually observed.
