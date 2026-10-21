@@ -2,34 +2,36 @@
 
 [← Back to portfolio](../README.md)
 
-**Status:** Not started · **Type:** Independent practice
+**Status:** Queries ready and executed by the agent; Nika's run pending · **Type:** Independent practice
 
-**Target:** a small synthetic SQLite database in [schema-and-data.sql](schema-and-data.sql). All data is invented. The dataset contains data quality problems on purpose; the task is to find them with SQL.
+**Target:** a small synthetic SQLite database. All data is invented and contains data quality problems on purpose. The task is to find them with SQL.
 
-## Setup
+## Files
 
-1. Install [DB Browser for SQLite](https://sqlitebrowser.org/) or use the `sqlite3` command line.
-2. Create a new database and run `schema-and-data.sql`.
+| File | Content |
+|---|---|
+| [schema-and-data.sql](schema-and-data.sql) | 4 tables (customers, orders, order_items, payments) with 46 rows |
+| [checks.sql](checks.sql) | 14 queries (checks 1–12; 10 is a report), each with a comment |
+| [results.md](results.md) | Expected rows, agent-executed results, and a column for Nika's run |
 
-## Checks to write
+## SQL covered
 
-| # | Check | Typical SQL |
-|---|---|---|
-| 1 | Orders whose customer does not exist | LEFT JOIN, IS NULL |
-| 2 | Payments for orders that do not exist | LEFT JOIN, IS NULL |
-| 3 | Orders where `total_amount` differs from the sum of their items | JOIN, GROUP BY, SUM, HAVING |
-| 4 | Orders paid more than once | GROUP BY, HAVING COUNT(*) > 1 |
-| 5 | Order statuses or payment methods outside the allowed values | WHERE … NOT IN |
-| 6 | Items with invalid quantity or price | WHERE |
-| 7 | Orders dated in the future | WHERE with date comparison |
-| 8 | Customers with missing, invalid, or duplicate emails | WHERE, GROUP BY, HAVING |
-| 9 | Orders marked PAID that have no payment | LEFT JOIN, IS NULL |
-| 10 | Number of orders and revenue by customer country | JOIN, GROUP BY |
+SELECT and WHERE, LEFT JOIN and JOIN, GROUP BY, HAVING, COUNT / SUM / ROUND / COALESCE, IS NULL checks, NOT IN for allowed values, LIKE for format checks, and GROUP_CONCAT.
 
-## Deliverables
+## How to run
 
-- [ ] `checks.sql`: one query per check, with a short comment explaining what it looks for
-- [ ] `results.md`: for each check, the rows my query returned and what the problem is
-- [ ] Short summary: which problems would matter most in a real system, and why
+1. Install [DB Browser for SQLite](https://sqlitebrowser.org/), or use the `sqlite3` command line.
+2. Create a new empty database.
+3. Run `schema-and-data.sql` (Execute SQL tab).
+4. Run each query in `checks.sql` one by one and compare the rows with [results.md](results.md).
 
-Update the status line above when work starts and when it is complete.
+With `sqlite3`:
+```bash
+sqlite3 practice.db < schema-and-data.sql
+sqlite3 -header -column practice.db < checks.sql
+```
+
+## Completed vs to verify
+
+- **Done:** queries written and executed by the agent; all 14 results match the expected rows (see [results.md](results.md)).
+- **Nika to do:** run the queries in a SQL tool, fill in "Nika's result", and be ready to explain each JOIN, GROUP BY, and HAVING in an interview.
