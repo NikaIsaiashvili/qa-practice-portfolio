@@ -16,10 +16,10 @@ Estimated time: about 3–4 hours.
 
 - [ ] Import the collection and environment ([how to run](02-api-testing-restful-booker/README.md#how-to-run)).
 - [ ] Enter the username and password from the API documentation in the environment. Do not commit them.
-- [ ] Run all 17 requests and fill in **Run 2** in [results.md](02-api-testing-restful-booker/results.md).
-- [ ] Reproduce API-07, API-08, and API-09 manually in Postman (one request at a time). Note the status code and response body.
+- [ ] Run all 17 requests and fill in **Run 3** in [results.md](02-api-testing-restful-booker/results.md).
+- [ ] Reproduce API-07, API-08, API-09, and API-13 manually in Postman (one request at a time). Note the status code and response body.
 - [ ] If you can reproduce one of them, write it as a bug report (expected vs actual, request, response).
-- [ ] Be ready to explain: what a 201, 403, 404, and 500 mean; how the token is used in PUT/PATCH/DELETE; and why a 500 for missing input is a problem.
+- [ ] Be ready to explain: what a 201, 401, 403, 404, and 500 mean; why a failed login should not return 200; how the token is used in PUT/PATCH/DELETE; and why a 500 for missing input is a problem.
 
 ## 3. SQL: about 45 minutes
 
