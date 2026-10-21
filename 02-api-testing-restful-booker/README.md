@@ -2,7 +2,7 @@
 
 [← Back to portfolio](../README.md)
 
-**Status:** Collection ready; partly executed by the agent; full run by Nika pending · **Type:** Independent practice
+**Status:** Collection ready; full run executed by the agent; Nika's run pending · **Type:** Independent practice
 
 **Target:** [Restful-Booker](https://restful-booker.herokuapp.com/), a public practice API for hotel bookings. Endpoints are described in its [API documentation](https://restful-booker.herokuapp.com/apidoc/index.html).
 
@@ -12,7 +12,7 @@
 |---|---|
 | [restful-booker.postman_collection.json](restful-booker.postman_collection.json) | 17 requests with Postman tests, in 3 folders |
 | [restful-booker.postman_environment.json](restful-booker.postman_environment.json) | Environment template. The username and password are empty; never commit real values. |
-| [results.md](results.md) | Run 1 (agent, folders 1–2) and a blank table for Nika's full run |
+| [results.md](results.md) | Run 2 (agent, all 17 requests), a note on Run 1, and a blank table for Nika's run (Run 3) |
 
 ## Coverage
 
@@ -42,5 +42,5 @@ Each run adds test bookings to the shared public API. Folder 3 deletes only the 
 
 ## Completed vs to verify
 
-- **Done:** the collection and environment are built; the collection loads and runs in Newman; folders 1–2 were executed by the agent (see [results.md](results.md)).
-- **Nika to do:** run all 3 folders, fill in Run 2, reproduce the three Run 1 observations, and write any confirmed problem as a bug report using the [bug report template](../templates/bug-report-template.md).
+- **Done:** the collection and environment are built; the whole collection (all 3 folders) was executed by the agent in Newman: 28 assertions, 24 passed, 4 failed on three negative cases (see [results.md](results.md)).
+- **Nika to do:** run all 3 folders, fill in Run 3, reproduce the four observations, and write any confirmed problem as a bug report using the [bug report template](../templates/bug-report-template.md).
