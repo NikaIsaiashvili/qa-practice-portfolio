@@ -8,7 +8,7 @@ This project is **test design, not test execution**. There is no application. Th
 
 ## Deliverables
 
-- [ ] `test-cases.md`: test cases that cover every rule in the specification, using the [test case template](../templates/test-case-template.md). Leave **Actual result** empty and set **Status** to "Not run".
+- [ ] `test-cases.md`: test cases that cover every rule in the specification, using the [test case template](../templates/test-case-template.md). Leave **Actual result** empty and set **Status** to "Not Run".
 - [ ] Equivalence partitions and boundary values for the amount field
 - [ ] A decision table for the fee rules
 - [ ] A state transition table for the transfer statuses
